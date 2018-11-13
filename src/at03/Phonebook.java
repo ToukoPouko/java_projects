@@ -35,11 +35,6 @@ public class Phonebook {
 		System.out.println("Added " + name + " to the phonebook!");
 		System.out.println(name + " " + book.get(name).get(0) + " " + book.get(name).get(1));
 		// File processing work in progress!
-		try {
-			Files.write(Paths.get("entries.txt"), "testi12345".getBytes(), StandardOpenOption.APPEND);
-		}catch(IOException e) {
-			
-		}
 		
 		try {
 			Thread.sleep(1000);
