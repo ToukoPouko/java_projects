@@ -35,8 +35,11 @@ public class Phonebook {
 		System.out.println("Added " + name + " to the phonebook!");
 		System.out.println(name + " " + book.get(name).get(0) + " " + book.get(name).get(1));
 		// File processing work in progress!
+<<<<<<< HEAD
 
 		//Tämä kirjoitettiin läppärillä
+=======
+>>>>>>> 596293a1b274f29ca928dd5967a4d113bc3bdfba
 		
 		try {
 			Thread.sleep(1000);
