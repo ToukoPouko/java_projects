@@ -16,7 +16,7 @@ public class Phonebook {
 	public static String userInput;	
 	public static Map<String, List<String>> book = new LinkedHashMap<String, List<String>>();	
 	
-	public static void addPerson() throws IOException {
+	public static void addPerson(){
 		 
 		String name;
 		String number;
