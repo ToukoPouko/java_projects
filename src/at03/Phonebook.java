@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.LinkedHashMap;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -14,14 +14,20 @@ public class Phonebook {
 
 	public static Scanner input = new Scanner(System.in);
 	public static String userInput;	
-	public static Map<String, List<String>> book = new LinkedHashMap<String, List<String>>();
-
+	public static Map<String, List<String>> book = new LinkedHashMap<String, List<String>>();	
 	
-	public static void addPerson() {
+	public static void addPerson() throws IOException {
+		 
 		String name;
 		String number;
 		String address;
 		List<String> values = new ArrayList<String>();
+		
+		/*try {
+			Files.write(Paths.get("C:\\atk_vahakangas\\ohjelmointi\\java_projects\\src\\at03\\entries.txt"), "aaa".getBytes(), StandardOpenOption.APPEND);
+		}catch(IOException e) {
+			
+		}*/
 		
 		System.out.println("Name: ");
 		name = input.next();
@@ -33,12 +39,8 @@ public class Phonebook {
 		values.add(address);
 		book.put(name, values);
 		System.out.println("Added " + name + " to the phonebook!");
-		System.out.println(name + " " + book.get(name).get(0) + " " + book.get(name).get(1));
+		
 		// File processing work in progress!
-
-
-		//Tämä kirjoitettiin läppärillä
-
 		
 		try {
 			Thread.sleep(1000);
@@ -50,7 +52,9 @@ public class Phonebook {
 	
 	private static void viewPhonebook() {
 		for(String key: book.keySet()) {
-			//System.out.println("Name | Number | Address");
+			if (book.size() <= 0) {
+				System.out.println("Your phonebook is empty!");
+			}
 			System.out.println(key + ", " + book.get(key).get(0) + ", " + book.get(key).get(1));
 		}
 		try {
@@ -63,8 +67,9 @@ public class Phonebook {
 	
 	public static void deletePerson() {
 		System.out.println("Who do you want to delete? (type the name): ");
-		book.remove(input.next());
-		System.out.println("Deleting was succesful");
+		String temp = input.next();
+		book.remove(temp);
+		System.out.println("Deleting " + temp + " was succesful");
 		try {
 			Thread.sleep(1000);
 		}

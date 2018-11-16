@@ -1,11 +1,11 @@
-package harjoitukset;
+package at03;
 
-import harjoitukset.Olympialaiset;
+import at03.Olympialaiset;
 import java.util.Scanner;
 
 public class OlympiatietojenEtsija {
 
-	public static void searchOne(int year, Olympialaiset[] taulukko) {
+	/*public static void searchOne(int year, Olympialaiset[] taulukko) {
 		int i = 0;
 		boolean done = false;
 		while(done == false) {
@@ -26,37 +26,61 @@ public class OlympiatietojenEtsija {
 		}		    
 		
 		
-		/*for(int i = 0; i <= taulukko.length - 1; i++) {
+		for(int i = 0; i <= taulukko.length - 1; i++) {
 			System.out.println(taulukko[i].olympiavuosi + ": " + taulukko[i].olympiakaupunki + ", " + taulukko[i].olympiamaa);
-		}*/
-	}
+		}
+	}*/
 	
 	public static void main(String[] args) {
 		Olympialaiset[] kisataulukko = new Olympialaiset[40];
+		Scanner input = new Scanner(System.in);
+		int year;
+		int a = 0;
+		String city;
+		String country;
 		
-		kisataulukko[0] = new Olympialaiset(1896, "Ateena", "Kreikka");
+		
+		do {
+			System.out.println("Anna vuosiluku: ");
+			year = input.nextInt();
+			if (year == 0) {
+				break;
+			}
+			System.out.println("Anna kisakaupunki: ");
+			city = input.next();
+			System.out.println("Anna maa: ");
+			country = input.next();
+			kisataulukko[a] = new Olympialaiset(year, city, country);
+			if(year != 0) a++;
+		} while(year != 0);
+		
+		
+		
+		/*kisataulukko[0] = new Olympialaiset(1896, "Ateena", "Kreikka");
 		kisataulukko[1] = new Olympialaiset(1900, "Pariisi", "Ranska");
 		kisataulukko[2] = new Olympialaiset(1904, "St. Louis", "U.S.A");
-		kisataulukko[3] = new Olympialaiset(1908, "Ateena", "Kreikka");
+		kisataulukko[3] = new Olympialaiset(1908, "Ateena", "Kreikka");*/
 		
 		
-		Scanner input = new Scanner(System.in);
 		
-		System.out.println("Anna vuosi: ");
+		
+		
+		
+		System.out.println("Anna vuosi, jolta haluat tietää lisätietoa: ");
 		
 		/*System.out.println("1. Hae vuoden perusteella");
 		System.out.println("2. Näytä kaikki");*/
 		
 		int user_input = input.nextInt();
 		
-		switch(user_input) {
+		/*switch(user_input) {
 		case 1:
 			searchOne(user_input, kisataulukko);
 		case 2:
 			showAll(kisataulukko);
-	}
+	}*/
 		
-		/*int i = 0;
+		int i = 0;
 		boolean done = false;
 		while(done == false) {
 			if(kisataulukko[i].lue_vuosi() == user_input) {
@@ -65,11 +89,13 @@ public class OlympiatietojenEtsija {
 			} else {
 				i++;
 			}
-		}*/
+		}
 		
 		
 		
 
 	}
+	
+	
 
 }

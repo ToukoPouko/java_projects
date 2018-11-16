@@ -1,4 +1,4 @@
-package harjoitukset;
+package at03;
 
 import java.util.Scanner;
 

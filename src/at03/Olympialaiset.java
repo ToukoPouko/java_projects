@@ -1,4 +1,4 @@
-package harjoitukset;
+package at03;
 
 public class Olympialaiset {
 
